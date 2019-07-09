@@ -1,16 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const Heading = props => {
-    return (
-        <div>
-            <h1>Resurants Header</h1>
-        </div>
-    );
+  return (
+    <div>
+      <h1>Restaurant Finder</h1>
+    </div>
+  );
 };
 
-Heading.propTypes = {
-    
-};
+Heading.propTypes = {};
 
 export default Heading;
