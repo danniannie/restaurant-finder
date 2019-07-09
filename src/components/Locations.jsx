@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Locations = ({ locations }) => {
+const Locations = ({ locations, chooseLocation }) => {
     return (
-        <ul>
+        <form>
+            <h3>Pick a location:</h3>
             {locations.map(location => {
-                return (<li key={location.id}>{location.name}</li>)
+                return (<button key={location.id} id={location.id} onClick={chooseLocation}>{location.name}</button>)
             })}
-        </ul>
+        </form>
     );
 };
 

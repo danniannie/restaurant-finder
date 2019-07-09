@@ -6,10 +6,9 @@ import Chart from './components/Chart';
 import List from './components/List';
 import PropTypes from 'prop-types';
 import axios from 'axios'
-import { createSecureContext } from 'tls';
 import Locations from './components/Locations';
 
-const header = {headers: {['user-key']: '2a893b47faf5969d339ceb5f6797974d'}}
+const header = {headers: { 'user-key': '2a893b47faf5969d339ceb5f6797974d'}}
 
 class App extends Component {
   state= {
@@ -25,7 +24,7 @@ class App extends Component {
       <Heading />
       <Form />
       <Chart />
-      <Locations locations={locations} />
+      <Locations locations={locations} chooseLocation={this.chooseLocation}/>
       <List />
     </div>
     );
@@ -47,6 +46,13 @@ class App extends Component {
     const { currentCity } = this.state
     const { data: restaurants } = await axios.get(`https://developers.zomato.com/api/v2.1/search?entity_id=${currentCity}&entity_type=city&start=0&count=100`, header)
     return restaurants
+  }
+  chooseLocation = (event) => {
+    event.preventDefault()
+    console.log(event.target)
+    this.setState({
+      currentCity: event.target.id
+    })
   }
 }
 
