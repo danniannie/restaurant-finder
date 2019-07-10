@@ -15,7 +15,12 @@ class App extends Component {
     restaurants: [],
     locations: [],
     search: "London",
-    currentCity: { id: 61, name: "London" },
+    currentCity: {
+      id: 61,
+      name: "London",
+      latitude: 51.5074,
+      longitude: -0.1278
+    },
     displayButtons: false
   };
   render() {
@@ -23,23 +28,29 @@ class App extends Component {
       locations,
       restaurants,
       displayButtons,
-      currentCity: { name }
+      currentCity: { name, latitude, longitude }
     } = this.state;
     return (
       <div className="App">
         <Heading />
         <Form submitSearch={this.submitSearch} />
-        <Chart />
         <Locations
           locations={locations}
           chooseLocation={this.chooseLocation}
           displayButtons={displayButtons}
         />
-        <List
+        <Chart
+          restaurants={restaurants}
+          latitude={latitude}
+          longitude={longitude}
+          displayMap={displayButtons}
+        />
+
+        {/* <List
           restaurants={restaurants}
           displayButtons={displayButtons}
           name={name}
-        />
+        /> */}
       </div>
     );
   }
@@ -57,9 +68,19 @@ class App extends Component {
       const locations = await this.fetchLocations();
       this.setState({ locations });
     }
-    if (this.state.currentCity !== prevState.currentCity) {
+    if (this.state.currentCity.name !== prevState.currentCity.name) {
       const restaurants = await this.fetchRestaurants();
-      this.setState({ restaurants });
+
+      await this.setState(() => {
+        return { restaurants };
+      });
+
+      this.setState(() => {
+        const currentCity = { ...this.state.currentCity };
+        currentCity.latitude = this.state.restaurants[0].restaurant.location.latitude;
+        currentCity.longitude = this.state.restaurants[0].restaurant.location.longitude;
+        return { currentCity };
+      });
     }
   };
   fetchLocations = async () => {
@@ -89,7 +110,12 @@ class App extends Component {
 
     this.setState({
       locations: [],
-      currentCity: { id: event.target.id, name: event.target.innerText },
+      currentCity: {
+        id: event.target.id,
+        name: event.target.innerText,
+        latitude: 0,
+        longitude: 0
+      },
       displayButtons: false
     });
   };
