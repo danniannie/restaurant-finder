@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
-// const mymap = L.map('mapid').setView([51.505, -0.09], 13);
-
-const Chart = ({ restaurants, longitude, latitude, displayMap }) => {
+const Chart = ({ restaurants, longitude, latitude }) => {
   return (
-    <div>
+    <div className="map">
       <Map
-        style={{ height: "480px", width: "80%" }}
+        style={{ height: "100%", width: "100%" }}
         zoom={12}
         center={[latitude, longitude]}
       >

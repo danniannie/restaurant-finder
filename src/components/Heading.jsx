@@ -1,14 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
+import "./styling/heading.css"
 
 const Heading = props => {
   return (
-    <div>
+    <div className="heading">
       <h1>Restaurant Finder</h1>
     </div>
   );
 };
-
-Heading.propTypes = {};
 
 export default Heading;

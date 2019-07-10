@@ -8,10 +8,10 @@ class Form extends Component {
 
   render() {
     return (
-      <section>
-        <p>Please enter the city in which you'd like to find a restaurant.</p>
-        <form>
-          <input
+      <section className="search" >
+        <p className="text">Please enter the city in which you'd like to find a restaurant.</p>
+        <form className="searchBox">
+          <input 
             type="text"
             onChange={this.handleChange}
             placeholder="Location..."
