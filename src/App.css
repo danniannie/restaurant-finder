@@ -1,22 +1,32 @@
 .App {
   display: grid;
   grid-template-rows: 1fr 2fr 5fr;
-  grid-template-areas: 
-  "heading"
-  "search"
-  "map";
-  font-family: ‘DM Serif Display’, serif;
+  grid-template-areas:
+    "heading"
+    "search"
+    "map";
+  font-family: "Nunito", sans-serif;
+
   margin: 0;
   padding: 0;
 }
 
-.heading { 
+h1 {
+  margin: 0;
+  font-size: 1.8em;
+  padding: 10px;
+}
+
+.heading {
   grid-area: heading;
-  border: solid red 1px;
-  background-color: #3193DE;
+
+  background-color: #3193de;
   text-align: center;
   font-size: 1.5em;
-  padding: 0px;
+  padding: 10px;
+  text-transform: uppercase;
+  height: 80%;
+  justify-content: center;
 }
 
 .search {
@@ -25,44 +35,64 @@
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: 
-  "text title"
-  "searchBox buttons";
-  border: solid blue 1px;
+  grid-template-areas:
+    "text title"
+    "searchBox buttons";
 }
 
 .title {
   grid-area: title;
-  font-size: 2em;
-  text-transform: capitalize;
+  font-size: 1.5em;
+  font-weight: 100;
+
+  margin: 0;
+  height: 40%;
+  font-family: "Nunito", sans-serif;
+
+  width: 100%;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.text {
+  grid-area: text;
+  font-size: 1.5em;
+
+  padding: 15px;
+  text-align: center;
+
+  margin: 0;
+  height: 65%;
 }
 
 .searchBox {
   grid-area: searchBox;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
 }
 
 .searchBox input {
   font-size: 1.5em;
   height: 30%;
   width: 65%;
-  font-family: ‘DM Serif Display’, serif;
-  margin: 0;
+  font-family: "Nunito", sans-serif;
+
+  margin-bottom: 5px;
+  margin-top: 10px;
 }
 
 .searchBox button {
-  font-family: ‘DM Serif Display’, serif;
+  font-family: "Nunito", sans-serif;
+
   height: 35%;
   width: 29%;
   margin: 0;
   padding: 0;
-}
-
-.text {
-  grid-area: text;
-  font-size: 1.5em;
-  text-transform: capitalize;
-  padding: 20px;
-  text-align: center;
+  background: white;
+  box-shadow: 2px 2px 1px grey;
 }
 
 .buttons {
@@ -73,17 +103,17 @@
   justify-content: center;
   padding-bottom: 20px;
   padding-right: 10px;
+  padding-left: 10px;
+  margin: 0;
 }
 
-.button { 
-  width: 20%;
-  height: 50%;
+.button {
   text-overflow: ellipsis;
+  font-size: 1.2em;
 }
 
 .map {
   height: "100%";
   width: "100%";
   grid-area: map;
-  border: solid yellow 1px;
 }
