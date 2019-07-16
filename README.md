@@ -17,9 +17,9 @@ To start this app, use the script: npm start
 To run this you will need:
 
 ```
-React
-Axios
-Leaflet
+React - https://reactjs.org
+Axios - https://github.com/axios/axios
+Leaflet - https://leafletjs.com/
 
 ```
 
@@ -30,7 +30,7 @@ https://dy-restaurant-finder.herokuapp.com/
 
 ## Built With
 
-React
+React - https://reactjs.org
 
 ## Authors
 
