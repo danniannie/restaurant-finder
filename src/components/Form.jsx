@@ -28,7 +28,7 @@ class Form extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.submitSearch(this.state.currentSearch);
-    this.setState({ search: "" });
+    this.setState({ currentSearch: "" });
   };
 
   handleChange = event => {
