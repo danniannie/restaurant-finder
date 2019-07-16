@@ -23,6 +23,11 @@ Leaflet
 
 ```
 
+## Deployment
+
+This project can also be accessed using Heroku:
+https://dy-restaurant-finder.herokuapp.com/
+
 ## Built With
 
 React
